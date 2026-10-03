@@ -1,2 +1,2 @@
 # cShell
-Una micro shell escrita en c como proyecto educativo
+Una micro shell escrita en c++ como proyecto educativo

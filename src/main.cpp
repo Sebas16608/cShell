@@ -1,27 +1,28 @@
 #include <iostream>
 #include <filesystem>
 #include <string>
-#include <vector>
 
 namespace fs = std::filesystem;
 
 int main(){
     bool prompt = true;
-    std::string command;
-
-    std::vector<std::string> comando = {"ls", "pdw", "exit"};
+    std::string comando;
 
     while (prompt){
         std::cout<<"$ ";
-        std::cin >> command;
+        std::cin >> comando;
 
-        for (int i = 0; i < comando.size(); i++) {
-            if (command == "ls" && comando[i] == "ls") {
-                std::cout<<"prueba"<<std::endl;
-            } else if (command == "pwd" && comando[i] == "pwd") {
-                std::cout<<fs::current_path()<<std::endl;
-            }
+        if (comando == "exit") {
+            prompt = false;
+        }
+        else if (comando == "pwd") {
+            std::cout<<fs::current_path().string()<<std::endl;
         }
 
+        else if (comando == "ls") {
+            for (const auto& entrada: fs::directory_iterator(".")) {
+                std::cout<<entrada.path().filename().string()<<std::endl;
+            }
+        }
     }
 }

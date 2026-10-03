@@ -1,4 +1,7 @@
 #include <iostream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 int main(){
     bool prompt = true;
@@ -10,6 +13,8 @@ int main(){
 
         if (command == "exit") {
             prompt = false;
+        } else if (command == "pwd"){
+            std::cout<<fs::current_path()<<std::endl;;
         }
     }
 }

@@ -1,11 +1,15 @@
 #include <iostream>
 #include <filesystem>
+#include <string>
+#include <vector>
 
 namespace fs = std::filesystem;
 
 int main(){
     bool prompt = true;
     std::string command;
+
+    std::vector<std::string> comando = {"ls", "pdw", "exit"};
 
     while (prompt){
         std::cout<<"$ ";

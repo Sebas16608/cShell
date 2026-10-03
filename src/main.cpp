@@ -15,10 +15,13 @@ int main(){
         std::cout<<"$ ";
         std::cin >> command;
 
-        if (command == "exit") {
-            prompt = false;
-        } else if (command == "pwd"){
-            std::cout<<fs::current_path()<<std::endl;;
+        for (int i = 0; i < comando.size(); i++) {
+            if (command == "ls" && comando[i] == "ls") {
+                std::cout<<"prueba"<<std::endl;
+            } else if (command == "pwd" && comando[i] == "pwd") {
+                std::cout<<fs::current_path()<<std::endl;
+            }
         }
+
     }
 }
